@@ -4,6 +4,7 @@ const { Schema, model } = mongoose;
 const urlSchema = new Schema({
   OriginalUrl:  String,
   GeneratedUrl: String,
+  IsTemp: {type: Boolean, default: false},
   date: {type: Date, default: Date.now }
 },
 //Eliminates __v attribute from mongodb database
