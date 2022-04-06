@@ -1,14 +1,7 @@
 const userManager = require("../managers/userManager");
 
-async function postUser(req, res) {
-  console.log(req.body, "body");
-  const user = await userManager.createUser({
-    name: "Miguel",
-    lastName: "Jimenez",
-    age: 32,
-  });
-  console.log("controller");
-
+async function postUser(req, res) {  
+  const user = await userManager.createUser({...req.body})
   res.status(201).json({ user: user }).end();
 }
 

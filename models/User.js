@@ -1,14 +1,25 @@
-const mongoose = require('../mongoose')
+const mongoose = require("../mongoose");
 const { Schema, model } = mongoose;
 
-const userSchema = new Schema({
-  Name:  String,
-  Surname: String,  
-  LoginName: String,
-  password: String,
-  date: { type: Date, default: Date.now }  
+const userSchema = new Schema(
+  {
+    Name: String,
+    Surname: String,
+    LoginName: String,
+    password: String,
+    date: { type: Date, default: Date.now },
+  },
+  //Eliminates __v attribute from mongodb database
+  { versionKey: false }
+);
+//Transform the _id attribute on the database to id attribute. It basicly copy _id into id and deletes _id
+userSchema.set("toJSON", {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id;
+    delete returnedObject._id;
+  },
 });
 
-const User = model('User', userSchema)
+const User = model("User", userSchema);
 
-module.exports = User
+module.exports = User;
