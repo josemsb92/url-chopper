@@ -1,10 +1,9 @@
 const urlManager = require("../managers/urlManager");
-
+//short-unique-id library generates an short uuid.
+const ShortUniqueId = require('short-unique-id');
+const uid = new ShortUniqueId({ length: 6 });
 async function postUrl(req, res) {
-  console.log(req.body, "body");
-  const url = await urlManager.createTempUrl({request:req.body,GeneratedUrl:'asf'})
-  console.log("controller");
-
+  const url = await urlManager.createTempUrl({...req.body,GeneratedUrl:`${uid()}`}) 
   res.status(201).json({ url: url }).end();
 }
 

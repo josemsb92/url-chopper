@@ -3,8 +3,8 @@ const { Schema, model } = mongoose;
 
 const urlSchema = new Schema({
   OriginalUrl:  String,
-  GeneratedUrl: String, 
-  date: { type: Date, default: Date.now }  
+  GeneratedUrl: String
+
 });
 
 const Url = model('Url', urlSchema)
