@@ -3,7 +3,7 @@ const urlManager = require("../managers/urlManager");
 const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 6 });
 async function postUrl(req, res) {
-  const url = await urlManager.createTempUrl({...req.body,GeneratedUrl:`${uid()}`}) 
+  const url = await urlManager.createShortUrl({...req.body,GeneratedUrl:`${uid()}`}) 
   res.status(201).json({ url: url }).end();
 }
 
