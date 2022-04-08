@@ -4,7 +4,8 @@
   "description": "A Web app to make shorter urls and manage them.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,9 @@
     "express": "^4.17.3",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.10",
-    "nodemon": "^2.0.15",
     "short-unique-id": "^4.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
