@@ -1,10 +1,11 @@
 const mongoose = require('../mongoose')
 const { Schema, model } = mongoose;
+const User = mongoose.model('User')
 
 const urlSchema = new Schema({
   OriginalUrl:  String,
   GeneratedUrl: String,
-  UserId: {type: String, default: null},
+  UserId: {type: Schema.ObjectId, ref: "User",default: null},
   date: {type: Date, default: Date.now }
 },
 //Eliminates __v attribute from mongodb database

@@ -4,10 +4,11 @@ const ShortUniqueId = require('short-unique-id');
 const { CURSOR_FLAGS } = require("mongodb");
 const uid = new ShortUniqueId({ length: 6 });
 async function postUrl(req, res) {
-  const {OriginalUrl} = req.body
+  const {OriginalUrl,UserId} = req.body
+  
   const url =
-  OriginalUrl.startsWith("https") ? 
-     await urlManager.createShortUrl({OriginalUrl,GeneratedUrl:`${uid()}`}) : "undefined"
+  OriginalUrl.startsWith("https")? 
+     await urlManager.createShortUrl({OriginalUrl,GeneratedUrl:`${uid()}`, UserId}) : "undefined"
   
   
   res.status(201).json({ url: url }).end();
