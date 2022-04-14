@@ -1,12 +1,15 @@
 require('dotenv').config()
 const express = require('express')
-const bodyParser = require('body-parser');
 const app = express()
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3002
-const cors = require('cors');
-//Provisional Cors all origin alloweds, needs to be changed.
-app.use(cors());
 app.use(bodyParser.json());
+//Provisional Cors all origin alloweds, needs to be changed.
+const cors = require('cors');
+var corsOptions = {
+    origin: 'http://localhost:3000/'
+  }
+app.use(cors(corsOptions));
 
 app.use('/urlchopper', require('./routes'))
 
