@@ -6,10 +6,8 @@ const PORT = process.env.PORT || 3002
 app.use(bodyParser.json());
 //Provisional Cors all origin alloweds, needs to be changed.
 const cors = require('cors');
-var corsOptions = {
-    origin: 'http://localhost:3000/'
-  }
-app.use(cors(corsOptions));
+
+app.use(cors());
 
 app.use('/urlchopper', require('./routes'))
 
