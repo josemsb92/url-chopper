@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3002;
 const loginRouter = require("./controllers/login");

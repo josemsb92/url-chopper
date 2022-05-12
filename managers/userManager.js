@@ -8,5 +8,9 @@ class userManager {
     await newUser.save();
     return newUser;
   }
+
+  /*   static async getUserInfo(id){
+
+  } */
 }
 module.exports = userManager;
