@@ -5,11 +5,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3002;
 const loginRouter = require("./controllers/login");
+app.use(cors());
 
 app.use(bodyParser.json());
 //Provisional Cors all origin alloweds, needs to be changed.
-
-app.use(cors());
 
 app.use("/urlchopper", require("./routes"));
 

@@ -12,10 +12,11 @@ class urlManager {
     return longUrl;
   }
 
-  static async getUrlById(body) {
-    const longUrl = await Url.findById(body);
-    console.log(params);
-    return longUrl;
+  static async getUrlById(id) {
+    console.log(id, "id en manager");
+    const data = await Url.find({ UserId: id });
+    console.log(data, " DATA");
+    return data;
   }
 }
 module.exports = urlManager;
