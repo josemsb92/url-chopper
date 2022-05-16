@@ -13,9 +13,12 @@ class urlManager {
   }
 
   static async getUrlById(id) {
-    console.log(id, "id en manager");
     const data = await Url.find({ UserId: id });
-    console.log(data, " DATA");
+    return data;
+  }
+
+  static async deleteUrl(id) {
+    const data = await Url.deleteOne({ _id: id });
     return data;
   }
 }
